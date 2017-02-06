@@ -1,0 +1,276 @@
+\hypertarget{classservidor_1_1Mandelbrot}{}\section{servidor.\+Mandelbrot Class Reference}
+\label{classservidor_1_1Mandelbrot}\index{servidor.\+Mandelbrot@{servidor.\+Mandelbrot}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState}{calculation\+State}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classservidor_1_1Mandelbrot_a2db8624e4b8e35be6c0d11c2ba66db41}{Mandelbrot} (int he, int wi, short ma, String n)
+\item 
+boolean \hyperlink{classservidor_1_1Mandelbrot_a3fc4593c70644aa3664e282b0cdfd0a3}{is\+End} ()
+\item 
+int \hyperlink{classservidor_1_1Mandelbrot_a905432e23be2e50504d449c29af8c030}{get\+Height} ()
+\item 
+int \hyperlink{classservidor_1_1Mandelbrot_a8852f55f8065884efcbb17ab789401ce}{get\+Width} ()
+\item 
+synchronized \hyperlink{classservidor_1_1Fila}{Fila} \hyperlink{classservidor_1_1Mandelbrot_ac31fee99afedf55af9e50a920398927d}{get\+Fila} ()  throws I\+O\+Exception
+\item 
+synchronized void \hyperlink{classservidor_1_1Mandelbrot_a46450ff3801397824de8fdb6bf82c6e3}{guardar\+Fila} (\hyperlink{classservidor_1_1Fila}{Fila} s)  throws I\+O\+Exception
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width}
+\item 
+Buffered\+Image \hyperlink{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}{result}
+\item 
+Graphics \hyperlink{classservidor_1_1Mandelbrot_afc3c91039c0345ef6a23b55eff765a03}{g}
+\item 
+String \hyperlink{classservidor_1_1Mandelbrot_ae1f139c807578878bf03527602d6a91f}{nombre}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classservidor_1_1Mandelbrot_a0ee45c3d42450d3e500c765abbda4f69}{guardar\+P\+NG} ()  throws I\+O\+Exception
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height}
+\item 
+short \hyperlink{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}{max}
+\item 
+\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState}{calculation\+State}\mbox{[}$\,$\mbox{]} \hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}
+\item 
+boolean \hyperlink{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{end}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Mandelbrot.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!Mandelbrot@{Mandelbrot}}
+\index{Mandelbrot@{Mandelbrot}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{Mandelbrot(int he, int wi, short ma, String n)}{Mandelbrot(int he, int wi, short ma, String n)}}]{\setlength{\rightskip}{0pt plus 5cm}servidor.\+Mandelbrot.\+Mandelbrot (
+\begin{DoxyParamCaption}
+\item[{int}]{he, }
+\item[{int}]{wi, }
+\item[{short}]{ma, }
+\item[{String}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Mandelbrot_a2db8624e4b8e35be6c0d11c2ba66db41}{}\label{classservidor_1_1Mandelbrot_a2db8624e4b8e35be6c0d11c2ba66db41}
+
+
+Definition at line 21 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+21                                                          \{
+22         this.\hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height} = he;
+23         this.\hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width} = wi;
+24         this.\hyperlink{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}{max} = ma;
+25         this.\hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state} = \textcolor{keyword}{new} calculationState[\hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height}];
+26         this.\hyperlink{classservidor_1_1Mandelbrot_ae1f139c807578878bf03527602d6a91f}{nombre} = n;
+27         Arrays.fill(this.\hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}, calculationState.\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState_a389a193a7ce972884fbb89e576175861}{free});
+28         this.\hyperlink{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{end} = \textcolor{keyword}{false};
+29         
+30         \hyperlink{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}{result} = \textcolor{keyword}{new} BufferedImage(\hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width}, \hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height}, BufferedImage.TYPE\_INT\_RGB);
+31         \hyperlink{classservidor_1_1Mandelbrot_afc3c91039c0345ef6a23b55eff765a03}{g} = \hyperlink{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}{result}.createGraphics();
+32     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!get\+Fila@{get\+Fila}}
+\index{get\+Fila@{get\+Fila}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{get\+Fila()}{getFila()}}]{\setlength{\rightskip}{0pt plus 5cm}synchronized {\bf Fila} servidor.\+Mandelbrot.\+get\+Fila (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{classservidor_1_1Mandelbrot_ac31fee99afedf55af9e50a920398927d}{}\label{classservidor_1_1Mandelbrot_ac31fee99afedf55af9e50a920398927d}
+
+
+Definition at line 40 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+40                                                          \{
+41         \textcolor{keywordflow}{if}(!\hyperlink{classservidor_1_1Mandelbrot_a3fc4593c70644aa3664e282b0cdfd0a3}{isEnd}())\{
+42             \textcolor{keywordtype}{int} doing = -1;
+43             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height} ; i++)\{
+44                 \textcolor{keywordflow}{if}(this.\hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}[i] == calculationState.\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState_a389a193a7ce972884fbb89e576175861}{free})\{
+45                     \hyperlink{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{end} = \textcolor{keyword}{false};
+46                     this.\hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}[i] = calculationState.\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState_a112a43895b4da3bb11c0f05330a6fc1e}{doing};
+47                     \textcolor{keywordflow}{return} \textcolor{keyword}{new} Fila(i, \hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width}, height, \hyperlink{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}{max});
+48                 \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(this.\hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}[i] == calculationState.\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState_a112a43895b4da3bb11c0f05330a6fc1e}{doing})
+49                     doing = i;
+50             \}
+51             
+52             \textcolor{comment}{/* Si no hay ninguna fila libre, pero si hay por lo menos una en ejecucion, se reasigna a la
+       nueva peticion */}
+53             \textcolor{keywordflow}{if}(doing != -1)
+54                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} Fila(doing, \hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width}, height, \hyperlink{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}{max});
+55                         
+56             \hyperlink{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{end} = \textcolor{keyword}{true};
+57             \hyperlink{classservidor_1_1Mandelbrot_a0ee45c3d42450d3e500c765abbda4f69}{guardarPNG}();
+58             \textcolor{keywordflow}{return} \textcolor{keyword}{new} Fila(-1,0,0,(\textcolor{keywordtype}{short})0);   
+59         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{new} Fila(-1,0,0,(\textcolor{keywordtype}{short})0);
+60         
+61     \}
+\end{DoxyCode}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{get\+Height()}{getHeight()}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Mandelbrot.\+get\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Mandelbrot_a905432e23be2e50504d449c29af8c030}{}\label{classservidor_1_1Mandelbrot_a905432e23be2e50504d449c29af8c030}
+
+
+Definition at line 36 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+36 \{ \textcolor{keywordflow}{return} \hyperlink{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{height}; \}
+\end{DoxyCode}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!get\+Width@{get\+Width}}
+\index{get\+Width@{get\+Width}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{get\+Width()}{getWidth()}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Mandelbrot.\+get\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Mandelbrot_a8852f55f8065884efcbb17ab789401ce}{}\label{classservidor_1_1Mandelbrot_a8852f55f8065884efcbb17ab789401ce}
+
+
+Definition at line 38 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+38 \{ \textcolor{keywordflow}{return} \hyperlink{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{width}; \}
+\end{DoxyCode}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!guardar\+Fila@{guardar\+Fila}}
+\index{guardar\+Fila@{guardar\+Fila}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{guardar\+Fila(\+Fila s)}{guardarFila(Fila s)}}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void servidor.\+Mandelbrot.\+guardar\+Fila (
+\begin{DoxyParamCaption}
+\item[{{\bf Fila}}]{s}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{classservidor_1_1Mandelbrot_a46450ff3801397824de8fdb6bf82c6e3}{}\label{classservidor_1_1Mandelbrot_a46450ff3801397824de8fdb6bf82c6e3}
+
+
+Definition at line 63 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+63                                                                    \{
+64         \textcolor{keywordtype}{int} numFila = s.getPosicion();
+65         \textcolor{keywordflow}{if}(numFila < height && numFila >= 0)\{
+66             \hyperlink{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{state}[numFila] = calculationState.\hyperlink{enumservidor_1_1Mandelbrot_1_1calculationState_af6bab61e31147be188ed02d6aa5b90df}{done};
+67             BufferedImage bi = ImageIO.read(\textcolor{keyword}{new} File(\textcolor{stringliteral}{"img/"}+ numFila +\textcolor{stringliteral}{".png"}));
+68             \hyperlink{classservidor_1_1Mandelbrot_afc3c91039c0345ef6a23b55eff765a03}{g}.drawImage(bi, 0, numFila, null);
+69         \}
+70     \}
+\end{DoxyCode}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!guardar\+P\+NG@{guardar\+P\+NG}}
+\index{guardar\+P\+NG@{guardar\+P\+NG}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{guardar\+P\+N\+G()}{guardarPNG()}}]{\setlength{\rightskip}{0pt plus 5cm}void servidor.\+Mandelbrot.\+guardar\+P\+NG (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Mandelbrot_a0ee45c3d42450d3e500c765abbda4f69}{}\label{classservidor_1_1Mandelbrot_a0ee45c3d42450d3e500c765abbda4f69}
+
+
+Definition at line 72 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+72                                                 \{
+73         ImageIO.write(\hyperlink{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}{result}, \textcolor{stringliteral}{"png"},\textcolor{keyword}{new} File(\hyperlink{classservidor_1_1Mandelbrot_ae1f139c807578878bf03527602d6a91f}{nombre} + \textcolor{stringliteral}{".png"}));
+74     \}
+\end{DoxyCode}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!is\+End@{is\+End}}
+\index{is\+End@{is\+End}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{is\+End()}{isEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean servidor.\+Mandelbrot.\+is\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Mandelbrot_a3fc4593c70644aa3664e282b0cdfd0a3}{}\label{classservidor_1_1Mandelbrot_a3fc4593c70644aa3664e282b0cdfd0a3}
+
+
+Definition at line 34 of file Mandelbrot.\+java.
+
+
+\begin{DoxyCode}
+34 \{ \textcolor{keywordflow}{return} \hyperlink{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{end}; \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!end@{end}}
+\index{end@{end}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{end}{end}}]{\setlength{\rightskip}{0pt plus 5cm}boolean servidor.\+Mandelbrot.\+end\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}{}\label{classservidor_1_1Mandelbrot_a86091dfb72790ed3f95c45f0ec24d3c0}
+
+
+Definition at line 14 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!g@{g}}
+\index{g@{g}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{g}{g}}]{\setlength{\rightskip}{0pt plus 5cm}Graphics servidor.\+Mandelbrot.\+g\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Mandelbrot_afc3c91039c0345ef6a23b55eff765a03}{}\label{classservidor_1_1Mandelbrot_afc3c91039c0345ef6a23b55eff765a03}
+
+
+Definition at line 16 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!height@{height}}
+\index{height@{height}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{height}{height}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Mandelbrot.\+height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}{}\label{classservidor_1_1Mandelbrot_a4d0130b58e95822c56b1b41274a84cff}
+
+
+Definition at line 11 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!max@{max}}
+\index{max@{max}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{max}{max}}]{\setlength{\rightskip}{0pt plus 5cm}short servidor.\+Mandelbrot.\+max\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}{}\label{classservidor_1_1Mandelbrot_ae06594a9f8593fa65bb4cfc6f6360ebe}
+
+
+Definition at line 12 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!nombre@{nombre}}
+\index{nombre@{nombre}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{nombre}{nombre}}]{\setlength{\rightskip}{0pt plus 5cm}String servidor.\+Mandelbrot.\+nombre\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Mandelbrot_ae1f139c807578878bf03527602d6a91f}{}\label{classservidor_1_1Mandelbrot_ae1f139c807578878bf03527602d6a91f}
+
+
+Definition at line 17 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!result@{result}}
+\index{result@{result}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{result}{result}}]{\setlength{\rightskip}{0pt plus 5cm}Buffered\+Image servidor.\+Mandelbrot.\+result\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}{}\label{classservidor_1_1Mandelbrot_a7ffdb7e65dc12cace2516fdb2882d47d}
+
+
+Definition at line 15 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!state@{state}}
+\index{state@{state}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{state}{state}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf calculation\+State} \mbox{[}$\,$\mbox{]} servidor.\+Mandelbrot.\+state\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}{}\label{classservidor_1_1Mandelbrot_a6d343b003d86dbdf317c26c2f55af9eb}
+
+
+Definition at line 13 of file Mandelbrot.\+java.
+
+\index{servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}!width@{width}}
+\index{width@{width}!servidor\+::\+Mandelbrot@{servidor\+::\+Mandelbrot}}
+\subsubsection[{\texorpdfstring{width}{width}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Mandelbrot.\+width\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}{}\label{classservidor_1_1Mandelbrot_afc820ea6c9992894d55fa4c024ee7fb1}
+
+
+Definition at line 11 of file Mandelbrot.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Ejercicios/servidor/\hyperlink{Mandelbrot_8java}{Mandelbrot.\+java}\end{DoxyCompactItemize}

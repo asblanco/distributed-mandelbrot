@@ -1,0 +1,121 @@
+\hypertarget{classservidor_1_1ExternalImp}{}\section{servidor.\+External\+Imp Class Reference}
+\label{classservidor_1_1ExternalImp}\index{servidor.\+External\+Imp@{servidor.\+External\+Imp}}
+Inheritance diagram for servidor.\+External\+Imp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classservidor_1_1ExternalImp}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classservidor_1_1ExternalImp_ae947cf00b8b40f5c06f6d360af21eae1}{External\+Imp} (\hyperlink{classservidor_1_1Mandelbrot}{Mandelbrot} m)  throws Remote\+Exception 
+\item 
+\hyperlink{classservidor_1_1Fila}{Fila} \hyperlink{classservidor_1_1ExternalImp_aa182d667cda5c438286ea7c63feeee28}{pedir\+Trabajo} ()  throws I\+O\+Exception 
+\item 
+void \hyperlink{classservidor_1_1ExternalImp_afaf8689cf3cb8f02a4c11247beca695c}{enviar\+Datos} (\hyperlink{classservidor_1_1Fila}{Fila} s)  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+\subsection*{Static Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final long \hyperlink{classservidor_1_1ExternalImp_acd2877f2e18786a8a54008ceaa0af042}{serial\+Version\+U\+ID} = 1
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classservidor_1_1Mandelbrot}{Mandelbrot} \hyperlink{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}{mandelbrot}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file External\+Imp.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}!External\+Imp@{External\+Imp}}
+\index{External\+Imp@{External\+Imp}!servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}}
+\subsubsection[{\texorpdfstring{External\+Imp(\+Mandelbrot m)}{ExternalImp(Mandelbrot m)}}]{\setlength{\rightskip}{0pt plus 5cm}servidor.\+External\+Imp.\+External\+Imp (
+\begin{DoxyParamCaption}
+\item[{{\bf Mandelbrot}}]{m}
+\end{DoxyParamCaption}
+) throws Remote\+Exception}\hypertarget{classservidor_1_1ExternalImp_ae947cf00b8b40f5c06f6d360af21eae1}{}\label{classservidor_1_1ExternalImp_ae947cf00b8b40f5c06f6d360af21eae1}
+
+
+Definition at line 11 of file External\+Imp.\+java.
+
+
+\begin{DoxyCode}
+11                                                             \{
+12         \hyperlink{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}{mandelbrot} = m;
+13     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}!enviar\+Datos@{enviar\+Datos}}
+\index{enviar\+Datos@{enviar\+Datos}!servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}}
+\subsubsection[{\texorpdfstring{enviar\+Datos(\+Fila s)}{enviarDatos(Fila s)}}]{\setlength{\rightskip}{0pt plus 5cm}void servidor.\+External\+Imp.\+enviar\+Datos (
+\begin{DoxyParamCaption}
+\item[{{\bf Fila}}]{s}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{classservidor_1_1ExternalImp_afaf8689cf3cb8f02a4c11247beca695c}{}\label{classservidor_1_1ExternalImp_afaf8689cf3cb8f02a4c11247beca695c}
+
+
+Implements \hyperlink{interfaceservidor_1_1ExternalInterface_a96a572af1920dfbc85b75e6f6f60ed6c}{servidor.\+External\+Interface}.
+
+
+
+Definition at line 21 of file External\+Imp.\+java.
+
+
+\begin{DoxyCode}
+21                                                         \{
+22         \hyperlink{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}{mandelbrot}.\hyperlink{classservidor_1_1Mandelbrot_a46450ff3801397824de8fdb6bf82c6e3}{guardarFila}(s);
+23     \}
+\end{DoxyCode}
+\index{servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}!pedir\+Trabajo@{pedir\+Trabajo}}
+\index{pedir\+Trabajo@{pedir\+Trabajo}!servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}}
+\subsubsection[{\texorpdfstring{pedir\+Trabajo()}{pedirTrabajo()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fila} servidor.\+External\+Imp.\+pedir\+Trabajo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{classservidor_1_1ExternalImp_aa182d667cda5c438286ea7c63feeee28}{}\label{classservidor_1_1ExternalImp_aa182d667cda5c438286ea7c63feeee28}
+
+
+Implements \hyperlink{interfaceservidor_1_1ExternalInterface_a45754d2f68d59a9fab540bf2c6f3f730}{servidor.\+External\+Interface}.
+
+
+
+Definition at line 16 of file External\+Imp.\+java.
+
+
+\begin{DoxyCode}
+16                                                   \{
+17         \textcolor{keywordflow}{return} \hyperlink{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}{mandelbrot}.\hyperlink{classservidor_1_1Mandelbrot_ac31fee99afedf55af9e50a920398927d}{getFila}();
+18     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}!mandelbrot@{mandelbrot}}
+\index{mandelbrot@{mandelbrot}!servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}}
+\subsubsection[{\texorpdfstring{mandelbrot}{mandelbrot}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mandelbrot} servidor.\+External\+Imp.\+mandelbrot\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}{}\label{classservidor_1_1ExternalImp_a5e902f152fac9ceebb5cbc8db1b71f01}
+
+
+Definition at line 8 of file External\+Imp.\+java.
+
+\index{servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}!serial\+Version\+U\+ID@{serial\+Version\+U\+ID}}
+\index{serial\+Version\+U\+ID@{serial\+Version\+U\+ID}!servidor\+::\+External\+Imp@{servidor\+::\+External\+Imp}}
+\subsubsection[{\texorpdfstring{serial\+Version\+U\+ID}{serialVersionUID}}]{\setlength{\rightskip}{0pt plus 5cm}final long servidor.\+External\+Imp.\+serial\+Version\+U\+ID = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}\hypertarget{classservidor_1_1ExternalImp_acd2877f2e18786a8a54008ceaa0af042}{}\label{classservidor_1_1ExternalImp_acd2877f2e18786a8a54008ceaa0af042}
+
+
+Definition at line 9 of file External\+Imp.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Ejercicios/servidor/\hyperlink{ExternalImp_8java}{External\+Imp.\+java}\end{DoxyCompactItemize}

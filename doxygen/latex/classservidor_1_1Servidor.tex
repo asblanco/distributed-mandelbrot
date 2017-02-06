@@ -1,0 +1,57 @@
+\hypertarget{classservidor_1_1Servidor}{}\section{servidor.\+Servidor Class Reference}
+\label{classservidor_1_1Servidor}\index{servidor.\+Servidor@{servidor.\+Servidor}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classservidor_1_1Servidor_aaac7317e0e052a4cce9aadd2c231773d}{main} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Servidor.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\index{servidor\+::\+Servidor@{servidor\+::\+Servidor}!main@{main}}
+\index{main@{main}!servidor\+::\+Servidor@{servidor\+::\+Servidor}}
+\subsubsection[{\texorpdfstring{main(\+String[] args)}{main(String[] args)}}]{\setlength{\rightskip}{0pt plus 5cm}static void servidor.\+Servidor.\+main (
+\begin{DoxyParamCaption}
+\item[{String\mbox{[}$\,$\mbox{]}}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classservidor_1_1Servidor_aaac7317e0e052a4cce9aadd2c231773d}{}\label{classservidor_1_1Servidor_aaac7317e0e052a4cce9aadd2c231773d}
+
+
+Definition at line 13 of file Servidor.\+java.
+
+
+\begin{DoxyCode}
+13                                            \{
+14         \textcolor{keywordflow}{if}(args.length == 4)\{
+15             \textcolor{keywordflow}{try} \{
+16                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} width = Integer.parseInt(args[0]);
+17                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} height = Integer.parseInt(args[1]);
+18                 \textcolor{keywordtype}{short} max = Short.parseShort(args[2]); \textcolor{comment}{//Numero maximo de iteraciones}
+19                 \textcolor{keyword}{final} String nombre = args[3];
+20                 
+21                 Mandelbrot m = \textcolor{keyword}{new} Mandelbrot(height,width,max, nombre);
+22 
+23                 ExternalInterface c = \textcolor{keyword}{new} ExternalImp(m);
+24                 LocateRegistry.createRegistry(1099);
+25                 Naming.rebind(\textcolor{stringliteral}{"rmi://localhost:1099/MandelbrotService"}, c);
+26                 
+27             \} \textcolor{keywordflow}{catch} (Exception e) \{
+28                 System.out.println(e.getMessage());
+29             \}
+30             
+31         \} \textcolor{keywordflow}{else} System.out.println(\textcolor{stringliteral}{"Debe introducir como parametros width, height (la resolución), numero de
+       maximo iteraciones y el nombre de la imagen"});
+32     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Ejercicios/servidor/\hyperlink{Servidor_8java}{Servidor.\+java}\end{DoxyCompactItemize}

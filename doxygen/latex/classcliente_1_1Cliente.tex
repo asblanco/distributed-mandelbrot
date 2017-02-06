@@ -1,0 +1,61 @@
+\hypertarget{classcliente_1_1Cliente}{}\section{cliente.\+Cliente Class Reference}
+\label{classcliente_1_1Cliente}\index{cliente.\+Cliente@{cliente.\+Cliente}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcliente_1_1Cliente_a33853a7b125454102f4ab05b8713416c}{main} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file Cliente.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\index{cliente\+::\+Cliente@{cliente\+::\+Cliente}!main@{main}}
+\index{main@{main}!cliente\+::\+Cliente@{cliente\+::\+Cliente}}
+\subsubsection[{\texorpdfstring{main(\+String[] args)}{main(String[] args)}}]{\setlength{\rightskip}{0pt plus 5cm}static void cliente.\+Cliente.\+main (
+\begin{DoxyParamCaption}
+\item[{String\mbox{[}$\,$\mbox{]}}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classcliente_1_1Cliente_a33853a7b125454102f4ab05b8713416c}{}\label{classcliente_1_1Cliente_a33853a7b125454102f4ab05b8713416c}
+
+
+Definition at line 14 of file Cliente.\+java.
+
+
+\begin{DoxyCode}
+14                                           \{
+15         \textcolor{keywordflow}{if}(args.length == 2)\{
+16             String url=args[0];
+17             String port=args[1];
+18             
+19             \textcolor{keywordflow}{try}\{
+20                 ExternalInterface c = (ExternalInterface) Naming.lookup(\textcolor{stringliteral}{"rmi://"}+url+\textcolor{stringliteral}{":"}+port+\textcolor{stringliteral}{"
+      /MandelbrotService"});
+21                 
+22                 \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{
+23                     Fila fila = c.pedirTrabajo();
+24                     System.out.println(fila.getPosicion());
+25                     
+26                     \textcolor{keywordflow}{if}(fila.getPosicion() == -1) \textcolor{keywordflow}{return};
+27                     \textcolor{keywordflow}{else}\{
+28                         fila.calcularFila();
+29                         c.enviarDatos(fila);
+30                     \}
+31                 \}
+32             \}
+33             \textcolor{keywordflow}{catch}(Exception e)\{
+34                 System.out.println(e.toString());
+35             \}
+36         \} \textcolor{keywordflow}{else} System.out.println(\textcolor{stringliteral}{"Debe introducir como parametros la URL y el puerto"});
+37     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Ejercicios/cliente/\hyperlink{Cliente_8java}{Cliente.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,190 @@
+\hypertarget{classservidor_1_1Fila}{}\section{servidor.\+Fila Class Reference}
+\label{classservidor_1_1Fila}\index{servidor.\+Fila@{servidor.\+Fila}}
+Inheritance diagram for servidor.\+Fila\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classservidor_1_1Fila}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classservidor_1_1Fila_ae55455a4bb3011452ee3bd9b07487b28}{Fila} (int p, int w, int h, short m)
+\item 
+int \hyperlink{classservidor_1_1Fila_ae0ac6d6fdbe9ce5563e6b4c44e4ac8cb}{get\+Posicion} ()
+\item 
+void \hyperlink{classservidor_1_1Fila_aef9662ce8e314d5300741c593a9d7623}{calcular\+Fila} ()  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}{width}
+\item 
+int \hyperlink{classservidor_1_1Fila_aab3edb5ec7dc0d0df4d4bf89a49aa72f}{height}
+\end{DoxyCompactItemize}
+\subsection*{Static Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final long \hyperlink{classservidor_1_1Fila_a14a142adc5c71e953428bbcaa8d82ea6}{serial\+Version\+U\+ID} = 0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{posicion}
+\item 
+short \hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max}
+\item 
+int \hyperlink{classservidor_1_1Fila_a5be0f71164db61e012c9c5b464e698ca}{black}
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}{colors}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Fila.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!Fila@{Fila}}
+\index{Fila@{Fila}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{Fila(int p, int w, int h, short m)}{Fila(int p, int w, int h, short m)}}]{\setlength{\rightskip}{0pt plus 5cm}servidor.\+Fila.\+Fila (
+\begin{DoxyParamCaption}
+\item[{int}]{p, }
+\item[{int}]{w, }
+\item[{int}]{h, }
+\item[{short}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Fila_ae55455a4bb3011452ee3bd9b07487b28}{}\label{classservidor_1_1Fila_ae55455a4bb3011452ee3bd9b07487b28}
+
+
+Definition at line 17 of file Fila.\+java.
+
+
+\begin{DoxyCode}
+17                                              \{
+18         this.\hyperlink{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{posicion} = p;
+19         this.\hyperlink{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}{width} = w;
+20         this.\hyperlink{classservidor_1_1Fila_aab3edb5ec7dc0d0df4d4bf89a49aa72f}{height} = h;
+21         this.\hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max} = m;
+22         
+23         \hyperlink{classservidor_1_1Fila_a5be0f71164db61e012c9c5b464e698ca}{black} = 0;
+24         \hyperlink{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}{colors} = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[\hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max}];
+25         
+26         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max}; i++) \{
+27             \hyperlink{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}{colors}[i] = Color.HSBtoRGB(i/256f, 1, i/(i+8f));
+28         \}
+29     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!calcular\+Fila@{calcular\+Fila}}
+\index{calcular\+Fila@{calcular\+Fila}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{calcular\+Fila()}{calcularFila()}}]{\setlength{\rightskip}{0pt plus 5cm}void servidor.\+Fila.\+calcular\+Fila (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{classservidor_1_1Fila_aef9662ce8e314d5300741c593a9d7623}{}\label{classservidor_1_1Fila_aef9662ce8e314d5300741c593a9d7623}
+
+
+Definition at line 33 of file Fila.\+java.
+
+
+\begin{DoxyCode}
+33                                                   \{
+34         BufferedImage image = \textcolor{keyword}{new} BufferedImage(\hyperlink{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}{width}, 1, BufferedImage.TYPE\_INT\_RGB);
+35         
+36         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < \hyperlink{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}{width}; col++) \{
+37             \textcolor{keywordtype}{double} c\_re = (col - width/2)*4.0/width;
+38             \textcolor{keywordtype}{double} c\_im = (\hyperlink{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{posicion} - \hyperlink{classservidor_1_1Fila_aab3edb5ec7dc0d0df4d4bf89a49aa72f}{height}/2)*4.0/width;
+39             \textcolor{keywordtype}{double} x = 0, y = 0;
+40             \textcolor{keywordtype}{int} iteration = 0;
+41             
+42             \textcolor{keywordflow}{while} (x*x+y*y < 4 && iteration < \hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max}) \{
+43                 \textcolor{keywordtype}{double} x\_new = x*x-y*y+c\_re;
+44                 y = 2*x*y+c\_im;
+45                 x = x\_new;
+46                 iteration++;
+47             \}
+48             \textcolor{keywordflow}{if} (iteration < \hyperlink{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{max}) image.setRGB(col, 0, \hyperlink{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}{colors}[iteration]);
+49             \textcolor{keywordflow}{else} image.setRGB(col, 0, \hyperlink{classservidor_1_1Fila_a5be0f71164db61e012c9c5b464e698ca}{black});
+50         \}
+51         
+52         ImageIO.write(image, \textcolor{stringliteral}{"png"}, \textcolor{keyword}{new} File(\textcolor{stringliteral}{"img/"}+ \hyperlink{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{posicion} +\textcolor{stringliteral}{".png"}));
+53     \}
+\end{DoxyCode}
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!get\+Posicion@{get\+Posicion}}
+\index{get\+Posicion@{get\+Posicion}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{get\+Posicion()}{getPosicion()}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Fila.\+get\+Posicion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classservidor_1_1Fila_ae0ac6d6fdbe9ce5563e6b4c44e4ac8cb}{}\label{classservidor_1_1Fila_ae0ac6d6fdbe9ce5563e6b4c44e4ac8cb}
+
+
+Definition at line 31 of file Fila.\+java.
+
+
+\begin{DoxyCode}
+31 \{ \textcolor{keywordflow}{return} \hyperlink{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{posicion}; \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!black@{black}}
+\index{black@{black}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{black}{black}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Fila.\+black\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Fila_a5be0f71164db61e012c9c5b464e698ca}{}\label{classservidor_1_1Fila_a5be0f71164db61e012c9c5b464e698ca}
+
+
+Definition at line 13 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!colors@{colors}}
+\index{colors@{colors}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{colors}{colors}}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} servidor.\+Fila.\+colors\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}{}\label{classservidor_1_1Fila_a7f175c78fb6e553bd01d06054c46e086}
+
+
+Definition at line 14 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!height@{height}}
+\index{height@{height}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{height}{height}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Fila.\+height\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Fila_aab3edb5ec7dc0d0df4d4bf89a49aa72f}{}\label{classservidor_1_1Fila_aab3edb5ec7dc0d0df4d4bf89a49aa72f}
+
+
+Definition at line 11 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!max@{max}}
+\index{max@{max}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{max}{max}}]{\setlength{\rightskip}{0pt plus 5cm}short servidor.\+Fila.\+max\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}{}\label{classservidor_1_1Fila_aa8821727301f09d86b881714d7824fa8}
+
+
+Definition at line 12 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!posicion@{posicion}}
+\index{posicion@{posicion}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{posicion}{posicion}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Fila.\+posicion\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}{}\label{classservidor_1_1Fila_a57f83b01118720d2e7e4abae6e79444c}
+
+
+Definition at line 11 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!serial\+Version\+U\+ID@{serial\+Version\+U\+ID}}
+\index{serial\+Version\+U\+ID@{serial\+Version\+U\+ID}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{serial\+Version\+U\+ID}{serialVersionUID}}]{\setlength{\rightskip}{0pt plus 5cm}final long servidor.\+Fila.\+serial\+Version\+U\+ID = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [package]}}\hypertarget{classservidor_1_1Fila_a14a142adc5c71e953428bbcaa8d82ea6}{}\label{classservidor_1_1Fila_a14a142adc5c71e953428bbcaa8d82ea6}
+
+
+Definition at line 15 of file Fila.\+java.
+
+\index{servidor\+::\+Fila@{servidor\+::\+Fila}!width@{width}}
+\index{width@{width}!servidor\+::\+Fila@{servidor\+::\+Fila}}
+\subsubsection[{\texorpdfstring{width}{width}}]{\setlength{\rightskip}{0pt plus 5cm}int servidor.\+Fila.\+width\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}{}\label{classservidor_1_1Fila_a5d6c08f920ba4ef0fc26ace09ff0ead1}
+
+
+Definition at line 11 of file Fila.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Ejercicios/servidor/\hyperlink{Fila_8java}{Fila.\+java}\end{DoxyCompactItemize}
