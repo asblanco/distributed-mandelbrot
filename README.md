@@ -8,4 +8,5 @@ Project for Concurrent and Distribution course at University of Vigo where we im
 [Doxygen documentation](doxygen/html/index.html)
 
 Output image:
+
 <img src="mandelbrotColor.png" width="700">
